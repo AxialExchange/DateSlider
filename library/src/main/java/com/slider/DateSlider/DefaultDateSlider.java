@@ -1,6 +1,7 @@
 /*
  * Copyright (C) 2013 Adam Colclough - Axial Exchange
- * 
+ *
+ * Default DateSlider which allows for an easy selection of a date
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,3 +15,21 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
+package com.slider.DateSlider;
+
+import java.util.Calendar;
+
+import android.content.Context;
+
+public class DefaultDateSlider extends DateSlider {
+	
+	public DefaultDateSlider(Context context, OnDateSetListener l, Calendar calendar, 
+			Calendar minTime, Calendar maxTime) {
+        super(context, R.layout.defaultdateslider, l, calendar, minTime, maxTime);
+    }
+	
+    public DefaultDateSlider(Context context, OnDateSetListener l, Calendar calendar) {
+        super(context, R.layout.defaultdateslider, l, calendar);
+    }
+}

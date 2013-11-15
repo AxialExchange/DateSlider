@@ -1,0 +1,14 @@
+
+*.class
+
+*.apk
+
+gen/
+
+.idea/
+
+library/build
+
+library/.gradle
+
+.gradle

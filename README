@@ -1,5 +1,5 @@
 
- Copyright (C) 2011 Daniel Berndt - Codeus Ltd - DateSlider 1.1
+ Copyright (C) 2013 Adam Colclough - Axial Exchange
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
@@ -93,5 +93,5 @@ the designed was refined. It is now based on an xml file and shadows at the bord
 Feedback
 ========
 
-Further feedback is highly appreciated and can be sent to < daniel@codeus.net > . 
+
 And please let me know whether the DateSlider makes it into your application!
