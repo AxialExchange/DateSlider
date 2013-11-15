@@ -101,27 +101,26 @@ public class Demo extends Activity implements OnClickListener {
 
     private DialogFragment getDemoView(int id) {
         final Calendar c = Calendar.getInstance();
-        switch (id) {
-            case R.id.defaultDateSelectButton:
-                return new DefaultDateSlider(this, mDateSetListener, c);
-            case R.id.defaultDateLimitSelectButton:
-                final Calendar maxTime = Calendar.getInstance();
-                maxTime.add(Calendar.DAY_OF_MONTH, 14);
-                return new DefaultDateSlider(this, mDateSetListener, c, c, maxTime);
-            case R.id.alternativeDateSelectButton:
-                return new AlternativeDateSlider(this, mDateSetListener, c, c, null);
-            case R.id.customDateSelectButton:
-                return new CustomDateSlider(this, mDateSetListener, c);
-            case R.id.monthYearDateSelectButton:
-                return new MonthYearDateSlider(this, mMonthYearSetListener, c);
-            case R.id.timeSelectButton:
-                return new TimeSlider(this, mTimeSetListener, c, 15);
-            case R.id.timeLimitSelectButton:
-                final Calendar minTime = Calendar.getInstance();
-                minTime.add(Calendar.HOUR, -2);
-                return new TimeSlider(this, mTimeSetListener, c, minTime, c, 5);
-            case R.id.dateTimeSelectButton:
-                return new DateTimeSlider(this, mDateTimeSetListener, c);
+        if (id == R.id.defaultDateSelectButton) {
+            return new DefaultDateSlider(this, mDateSetListener, c);
+        } else if (id == R.id.defaultDateLimitSelectButton) {
+            final Calendar maxTime = Calendar.getInstance();
+            maxTime.add(Calendar.DAY_OF_MONTH, 14);
+            return new DefaultDateSlider(this, mDateSetListener, c, c, maxTime);
+        } else if (id == R.id.alternativeDateSelectButton) {
+            return new AlternativeDateSlider(this, mDateSetListener, c, c, null);
+        } else if (id == R.id.customDateSelectButton) {
+            return new CustomDateSlider(this, mDateSetListener, c);
+        } else if (id == R.id.monthYearDateSelectButton) {
+            return new MonthYearDateSlider(this, mMonthYearSetListener, c);
+        } else if (id == R.id.timeSelectButton) {
+            return new TimeSlider(this, mTimeSetListener, c, 15);
+        } else if (id == R.id.timeLimitSelectButton) {
+            final Calendar minTime = Calendar.getInstance();
+            minTime.add(Calendar.HOUR, -2);
+            return new TimeSlider(this, mTimeSetListener, c, minTime, c, 5);
+        } else if (id == R.id.dateTimeSelectButton) {
+            return new DateTimeSlider(this, mDateTimeSetListener, c);
         }
         return null;
     }

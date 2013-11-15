@@ -36,8 +36,6 @@ import android.widget.Scroller;
 import com.slider.DateSlider.labeler.Labeler;
 import com.slider.DateSlider.timeview.TimeView;
 
-import org.jetbrains.annotations.NotNull;
-
 import java.lang.reflect.Constructor;
 
 /**
@@ -469,7 +467,7 @@ public class ScrollLayout extends LinearLayout {
      * finding whether to scroll or not
      */
     @Override
-    public boolean onTouchEvent(@NotNull MotionEvent event) {
+    public boolean onTouchEvent(MotionEvent event) {
         final int action = event.getAction();
         final int x = (int) event.getX();
         if (action == MotionEvent.ACTION_DOWN) {

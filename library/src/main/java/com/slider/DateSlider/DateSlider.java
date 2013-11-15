@@ -33,8 +33,6 @@ import android.widget.TextView;
 
 import com.slider.DateSlider.SliderContainer.OnTimeChangeListener;
 
-import org.jetbrains.annotations.Nullable;
-
 /**
  * A Dialog subclass that hosts a SliderContainer and a couple of buttons,
  * displays the current time in the header, and notifies an observer
@@ -95,7 +93,6 @@ public class DateSlider extends DialogFragment {
         }
     }
 
-    @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(mLayoutID, container, false);
