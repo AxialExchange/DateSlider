@@ -22,13 +22,11 @@ package com.slider.DateSlider;
 import java.util.Calendar;
 
 import android.app.DialogFragment;
-import android.app.FragmentManager;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
 
 import com.slider.DateSlider.SliderContainer.OnTimeChangeListener;
@@ -108,11 +106,6 @@ public class DateSlider extends DialogFragment {
         if (minTime!=null) mContainer.setMinTime(minTime);
         if (maxTime!=null) mContainer.setMaxTime(maxTime);
 
-        Button okButton = (Button) rootView.findViewById(R.id.dateSliderOkButton);
-        okButton.setOnClickListener(okButtonClickListener);
-
-        Button cancelButton = (Button) rootView.findViewById(R.id.dateSliderCancelButton);
-        cancelButton.setOnClickListener(cancelButtonClickListener);
         return rootView;
     }
 
@@ -120,26 +113,13 @@ public class DateSlider extends DialogFragment {
         mContainer.setTime(c);
     }
 
-    private android.view.View.OnClickListener okButtonClickListener = new android.view.View.OnClickListener() {
-        public void onClick(View v) {
-            if (onDateSetListener!=null)
-                onDateSetListener.onDateSet(DateSlider.this, getTime());
-            //dismiss();
-        }
-    };
-
-    private android.view.View.OnClickListener cancelButtonClickListener = new android.view.View.OnClickListener() {
-        public void onClick(View v) {
-            FragmentManager fragmentManager = getFragmentManager();
-            if (fragmentManager != null) {
-                fragmentManager.popBackStack();
-            }
-        }
-    };
 
     private OnTimeChangeListener onTimeChangeListener = new OnTimeChangeListener() {
 
         public void onTimeChange(Calendar time) {
+
+            if (onDateSetListener!=null)
+                onDateSetListener.onDateSet(DateSlider.this, getTime());
             setTitle();
         }
     };
@@ -148,7 +128,6 @@ public class DateSlider extends DialogFragment {
     public void onSaveInstanceState(Bundle outState) {
         if (outState==null) outState = new Bundle();
         outState.putSerializable("time", getTime());
-        super.onSaveInstanceState(outState);
     }
 
     /**
