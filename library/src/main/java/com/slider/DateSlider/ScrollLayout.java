@@ -103,8 +103,8 @@ public class ScrollLayout extends LinearLayout {
         final ViewConfiguration configuration = ViewConfiguration.get(context);
         mMinimumVelocity = configuration.getScaledMinimumFlingVelocity();
         // as mMaximumVelocity does not exist in API<4
-        float density = context.getResources().getDisplayMetrics().density;
-        mMaximumVelocity = (int) (4000 * 0.5f * density);
+        //float density = context.getResources().getDisplayMetrics().density;
+        //mMaximumVelocity = (int) (4000 * 0.5f * density);
 
         TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.ScrollLayout,
                 0, 0);

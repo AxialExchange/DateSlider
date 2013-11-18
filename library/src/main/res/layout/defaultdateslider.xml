@@ -16,6 +16,6 @@
         style="@style/Scroller"
         app:labelerClass="com.slider.DateSlider.labeler.DayDateLabeler"
         app:labelerFormat="%td %ta"
-        app:childWidth="45dp"
+        app:childWidth="60dp"
         />
 </com.slider.DateSlider.SliderContainer>
