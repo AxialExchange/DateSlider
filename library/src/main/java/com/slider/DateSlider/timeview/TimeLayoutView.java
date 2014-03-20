@@ -46,9 +46,7 @@ public class TimeLayoutView extends LinearLayout implements TimeView {
         setOrientation(VERTICAL);
         topView = new TextView(context);
         topView.setGravity(Gravity.CENTER_HORIZONTAL|Gravity.BOTTOM);
-
         bottomView = new TextView(context);
-        bottomView.setGravity(Gravity.CENTER_HORIZONTAL|Gravity.TOP);
         bottomView.setTextSize(TypedValue.COMPLEX_UNIT_DIP, bottomTextSize);
         topView.setLineSpacing(0, lineHeight);
         if (isCenterView) {
@@ -70,6 +68,15 @@ public class TimeLayoutView extends LinearLayout implements TimeView {
 
     }
 
+    /**
+     * sets the gravity of the own view as well as its text views
+     */
+    public void setGravity(int gravity) {
+    	super.setGravity(gravity);
+    	topView.setGravity(gravity^(Gravity.TOP|Gravity.BOTTOM));
+    	bottomView.setGravity(gravity^(Gravity.TOP|Gravity.BOTTOM));
+    } 
+    
     
     public void setTime(TimeObject to) {
         text = to.text.toString();
