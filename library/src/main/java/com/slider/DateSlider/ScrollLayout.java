@@ -52,6 +52,7 @@ import java.lang.reflect.Constructor;
 public class ScrollLayout extends LinearLayout {
 
     private static String TAG = "SCROLL_LAYOUT";
+    private final int objGravity;
 
     private Scroller mScroller;
     /**
