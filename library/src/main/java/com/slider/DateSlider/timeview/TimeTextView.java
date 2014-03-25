@@ -35,7 +35,6 @@ public class TimeTextView extends TextView implements TimeView {
      */
     protected void setupView(boolean isCenterView, int textSize) {
         setGravity(Gravity.CENTER);
-
         if (isCenterView) {
             setTextSize(TypedValue.COMPLEX_UNIT_DIP, (textSize * 120)/100);
             setTypeface(Typeface.DEFAULT_BOLD);
@@ -45,7 +44,6 @@ public class TimeTextView extends TextView implements TimeView {
             setTextColor(0xFF999999);
         }
     }
-
     
     public void setTime(TimeObject to) {
         setText(to.text);

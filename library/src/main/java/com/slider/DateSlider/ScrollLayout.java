@@ -52,6 +52,7 @@ import java.lang.reflect.Constructor;
 public class ScrollLayout extends LinearLayout {
 
     private static String TAG = "SCROLL_LAYOUT";
+    private final int objGravity;
 
     private Scroller mScroller;
     /**
@@ -79,7 +80,6 @@ public class ScrollLayout extends LinearLayout {
     private long currentTime = System.currentTimeMillis();
     private long minTime = -1, maxTime = -1;
     private int minuteInterval = 1;
-
     /**
      * The width of each child
      */
@@ -88,7 +88,6 @@ public class ScrollLayout extends LinearLayout {
      * The height of each child
      */
     private int objHeight;
-
 
     private Labeler mLabeler;
     private OnScrollListener listener;
@@ -135,7 +134,9 @@ public class ScrollLayout extends LinearLayout {
                 mLabeler.getPreferredViewWidth(context));
         objHeight = a.getDimensionPixelSize(R.styleable.ScrollLayout_childHeight,
                 mLabeler.getPreferredViewHeight(context));
-
+        
+        objGravity = a.getInt(R.styleable.ScrollLayout_android_gravity, Gravity.CENTER);
+        
         a.recycle();
     }
 
@@ -471,6 +472,7 @@ public class ScrollLayout extends LinearLayout {
         final int action = event.getAction();
         final int x = (int) event.getX();
         if (action == MotionEvent.ACTION_DOWN) {
+        	getParent().requestDisallowInterceptTouchEvent(true);
             mDragMode = true;
             if (!mScroller.isFinished()) {
                 mScroller.abortAnimation();
