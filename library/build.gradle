@@ -15,7 +15,7 @@ apply plugin: 'android-library'
 
 
 android {
-    buildToolsVersion "19"
+    buildToolsVersion '19.1.0'
     compileSdkVersion 19
     sourceSets {
         // Move the tests to tests/java, tests/res, etc...
